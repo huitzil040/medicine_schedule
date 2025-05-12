@@ -4,7 +4,7 @@ import MedicationList from './MedicationList';
 import MedicationHistory from './MedicationHistory';
 import { NotificationManager } from './Notification';
 import { useMedications } from './useMedication';
-import './App.css';
+import './app.css';
 
 const App = () => {
   const { medications, medicationHistory, addMedication, deleteMedication, markAsTaken, updateMedication } = useMedications();

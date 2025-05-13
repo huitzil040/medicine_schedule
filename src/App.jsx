@@ -2,16 +2,19 @@ import React from 'react';
 import AddMedication from './AddMedication';
 import MedicationList from './MedicationList';
 import MedicationHistory from './MedicationHistory';
+import MList from './MList';
 import { NotificationManager } from './Notification';
 import { useMedications } from './useMedication';
 import './app.css';
 
 const App = () => {
-  const { medications, medicationHistory, addMedication, deleteMedication, markAsTaken, updateMedication } = useMedications();
+  const { medications, medicationHistory, addMedication, deleteMedication, markAsTaken, updateMedication, medList } = useMedications();
+
+  console.log(medList);
 
   return (
     <div className="container">
-      <h1>Madication Reminder</h1>
+      <h1>My Medicine</h1>
       <AddMedication addMedication={addMedication} />
       <div>
         <h2>今日の服薬タスク</h2>
@@ -23,6 +26,7 @@ const App = () => {
         />
       </div>
       <MedicationHistory medicationHistory={medicationHistory} />
+      <MList MList={medList} />
       <NotificationManager medications={medications} />
     </div>
   );

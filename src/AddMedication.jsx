@@ -3,42 +3,40 @@ import React, { useState } from 'react';
 const AddMedication = ({ addMedication }) => {
   const [name, setName] = useState('');
   const [time, setTime] = useState('');
-  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim() || !time) {
-      setError('薬の名前と時間を入力してください');
-      return;
-    }
-
-    setError('');
-
-    addMedication({ name: name.trim(), time });
-
+    if (!name || !time) return alert('薬名と時間を入力してください');
+    addMedication({ name, time, taken: false });
     setName('');
     setTime('');
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="medication-form">
+      <div className="form-group">
+        <label htmlFor="name">薬の名前</label>
         <input
           type="text"
-          placeholder="薬の名前"
+          id="name"
+          placeholder="例: アセトアミノフェン"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="time">服薬時間</label>
         <input
           type="time"
+          id="time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-        <button type="submit">追加</button>
-      </form>
+      </div>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
+      <button type="submit" className="save-btn">登録</button>
+    </form>
   );
 };
 

@@ -23,8 +23,12 @@ const App = () => {
           updateMedication={updateMedication}
         />
       </div>
-      <MedicationHistory medicationHistory={medicationHistory} />
-      <MList MList={medList} />
+      <MList
+        medList={medList}
+        updateMedication={updateMedication}
+        deleteMedication={deleteMedication}
+      />
+        <MedicationHistory medicationHistory={medicationHistory} />
       <NotificationManager medications={medications} />
     </div>
   );

@@ -10,8 +10,6 @@ import './app.css';
 const App = () => {
   const { medications, medicationHistory, addMedication, deleteMedication, markAsTaken, updateMedication, medList } = useMedications();
 
-  console.log(medList);
-
   return (
     <div className="container">
       <h1>My Medicine</h1>

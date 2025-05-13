@@ -19,13 +19,9 @@ export function useMedications() {
     }
     if (storedHistory) {
       setMedicationHistory(JSON.parse(storedHistory));
-      console.log(storedHistory)
-      console.log(medicationHistory)
     }
     if (storedList) {
       setMedList(JSON.parse(storedList));
-      console.log(storedList)
-      console.log(medList)
     }
 
 
